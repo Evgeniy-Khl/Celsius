@@ -1,0 +1,60 @@
+/* delay_ms(1000); SCKPORT = OFF; delay_ms(2000);
+result_TX = 2;
+switch (result_TX)
+    {
+    case 1: SCKPORT = ON;delay_ms(50);    // вспышка
+     break;
+    case 2: SCKPORT = ON;delay_ms(50);    // вспышка
+            SCKPORT = OFF;delay_ms(250);
+            SCKPORT = ON;delay_ms(50);    // вспышка 2
+     break;
+    case 3: SCKPORT = ON;delay_ms(50);    // вспышка
+            SCKPORT = OFF;delay_ms(250);
+            SCKPORT = ON;delay_ms(50);    // вспышка 2
+            SCKPORT = OFF;delay_ms(250);
+            SCKPORT = ON;delay_ms(50);    // вспышка 3
+     break;
+    case 4: SCKPORT = ON;delay_ms(50);    // вспышка
+            SCKPORT = OFF;delay_ms(250);
+            SCKPORT = ON;delay_ms(50);    // вспышка 2
+            SCKPORT = OFF;delay_ms(250);
+            SCKPORT = ON;delay_ms(50);    // вспышка 3
+            SCKPORT = OFF;delay_ms(250);
+            SCKPORT = ON;delay_ms(50);    // вспышка 4
+     break;
+    }; 
+   SCKPORT = OFF; delay_ms(2000); SCKPORT = ON; 
+   */
+   
+// Watchdog Timer initialization
+// Watchdog Timer Prescaler: OSC/256k
+// Watchdog Timer interrupt: Off
+#pragma optsize-
+#asm("wdr")
+WDTCR=0x1F;
+WDTCR=0x0F;
+#ifdef _OPTIMIZE_SIZE_
+#pragma optsize+
+#endif
+
+// Watchdog Timer initialization
+// Watchdog Timer Prescaler: OSC/512k
+// Watchdog Timer interrupt: Off
+#pragma optsize-
+#asm("wdr")
+WDTCR=0x38;
+WDTCR=0x28;
+#ifdef _OPTIMIZE_SIZE_
+#pragma optsize+
+#endif
+
+// Watchdog Timer initialization
+// Watchdog Timer Prescaler: OSC/1024k
+// Watchdog Timer interrupt: Off
+#pragma optsize-
+#asm("wdr")
+WDTCR=0x39;
+WDTCR=0x29;
+#ifdef _OPTIMIZE_SIZE_
+#pragma optsize+
+#endif

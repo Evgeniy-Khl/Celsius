@@ -1,0 +1,27 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+familycode                                                        0x00E0      36
+waiting                                                           0x0104       4
+ds                                                                0x0108       8
+pv                                                                0x0110      12
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+NRFchannel                                                        0x0000       1
+NRFblockAdr                                                       0x0001       1
+NRFother                                                          0x0002       1
+addrPipe                                                          0x0003      10
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+status                                                            R3           1
+devices                                                           R2           1
+faultyNrf                                                         R5           1
+TimeSlot                                                          GPIOR0.0  1bit
+Fall                                                              GPIOR0.1  1bit
+RstPulse                                                          GPIOR0.2  1bit
+Waiting                                                           GPIOR0.3  1bit
+PrsPulse                                                          GPIOR0.4  1bit
